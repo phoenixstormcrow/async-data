@@ -1,6 +1,8 @@
 <!-- async-data.html -->
 <!-- a web component for async data retrieval -->
 <script>
+(function () {
+
 var AsyncDataProto = Object.create(HTMLElement.prototype),
     dataEvent = new Event('data', {'bubbles' : true});
 
@@ -49,4 +51,5 @@ AsyncDataProto.attributeChangedCallback = function (attr, oldval, newval) {
 
 var AsyncData = document.registerElement('async-data', { prototype: AsyncDataProto });
 
+})();
 </script>
