@@ -9,12 +9,20 @@
     "open": "opener http://localhost:3000",
     "dev": "npm run serve & npm run open"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phoenixstormcrow/async-data"
+  },
   "keywords": [
     "web-components",
     "ajax"
   ],
   "author": "K. P. MacGregor <phoenixstormcrow@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phoenixstormcrow/async-data/issues"
+  },
+  "homepage": "https://github.com/phoenixstormcrow/async-data",
   "devDependencies": {
     "babel": "^4.5.4",
     "jshint": "^2.6.0",
