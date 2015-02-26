@@ -1,0 +1,26 @@
+{
+  "name": "async-data",
+  "version": "0.0.1",
+  "description": "A web component for async data retrieval.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*",
+    "serve": "serve .",
+    "open": "opener http://localhost:3000",
+    "dev": "npm run serve & npm run open"
+  },
+  "keywords": [
+    "web-components",
+    "ajax"
+  ],
+  "author": "K. P. MacGregor <phoenixstormcrow@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^4.5.4",
+    "jshint": "^2.6.0",
+    "opener": "^1.4.0",
+    "serve": "^1.4.0",
+    "tape": "^3.5.0",
+    "webcomponents.js": "^0.5.4-1"
+  }
+}

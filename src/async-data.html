@@ -1,0 +1,52 @@
+<!-- async-data.html -->
+<!-- a web component for async data retrieval -->
+<script>
+var AsyncDataProto = Object.create(HTMLElement.prototype),
+    dataEvent = new Event('data', {'bubbles' : true});
+
+AsyncDataProto.get = function getData() {
+  var xhr = new XMLHttpRequest(),
+      url = this.src,
+      that = this;
+
+  if (!url) {
+    console.log("Error: invalid src attribute.");
+    return;
+  }
+
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === xhr.DONE) {
+      status = xhr.status;
+
+      if ((status >= 200 && status < 300)
+           || status === 304 || status === 0) {
+        response = xhr.response || xhr.responseText;
+        that.value = response;
+        that.dispatchEvent(dataEvent);
+      } else {
+        console.log("Error: XMLHttpRequest status " + status);
+      }
+    }
+  };
+
+  xhr.send();
+};
+
+AsyncDataProto.createdCallback = function () {
+  this.src = this.getAttribute('src');
+  if (this.src) {
+    this.get();
+  }
+};
+
+AsyncDataProto.attributeChangedCallback = function (attr, oldval, newval) {
+  if (attr === 'src' && newval) {
+    this.src = newval;
+    this.get();
+  }
+};
+
+var AsyncData = document.registerElement('async-data', { prototype: AsyncDataProto });
+
+</script>
