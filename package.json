@@ -1,6 +1,6 @@
 {
   "name": "async-data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A web component for async data retrieval.",
   "main": "index.js",
   "scripts": {
