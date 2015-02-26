@@ -27,7 +27,10 @@ AsyncDataProto.get = function getData() {
         that.value = response;
         that.dispatchEvent(dataEvent);
       } else {
-        console.log("Error: XMLHttpRequest status " + status);
+        var msg = "Error: XMLHttpRequest status " + status,
+            e = new ErrorEvent('error', {'bubbles': true, 'message': msg});
+        console.log(msg);
+        that.dispatchEvent(e);
       }
     }
   };

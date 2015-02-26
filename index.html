@@ -14,6 +14,7 @@
       <h2>A web component for async data retrieval.</h2>
     </header>
     <async-data src="https://api.github.com/users/phoenixstormcrow"></async-data>
+    <h3>Your data:</h3>
     <output id="async-data-output"></output>
     <br>
     <br>
@@ -42,6 +43,11 @@
         document.addEventListener('data', function (evt) {
           if (evt.target === asyncData) {
             output.textContent = asyncData.value;
+          }
+        });
+        document.addEventListener('error', function (evt) {
+          if (evt.target === asyncData) {
+            output.textContent = "Oops. Something went wrong."
           }
         });
       };
