@@ -38,7 +38,7 @@ AsyncDataProto.get = function getData() {
   xhr.send();
 };
 
-AsyncDataProto.createdCallback = function () {
+AsyncDataProto.attachedCallback = function () {
   this.src = this.getAttribute('src');
   if (this.src) {
     this.get();
