@@ -1,12 +1,24 @@
 # async-data
 A web component for async data retrieval.
 
+## install
+
+`npm install async-data`
+
 ## usage
+
+First, load the polyfill:
+`<script src='src/webcomponents.js`
+
+Import the element:
+`<link rel="import" href="src/async-data.html">`
+
+Instantiate it:
 `<async-data src='https://someapi.com'></async-data>`
 
 Data is fetched from the resource indicated by the `src` attribute. This is triggered by the element's `.createdCallback`, when the `src` attribute is changed, and can be triggered by calling the element's `.get()` method.
 
-The element uses XMLHttpRequest to fetch the data. When done, it emits a 'data' event. An 'error' event, which is an instance of ErrorEvent, is emitted if there is an error.
+The element uses XMLHttpRequest to fetch the data. When done, it emits a 'data' event. An 'error' event, which is an instance of ErrorEvent, is emitted if there is an error, such as a 404.
 
 The element's `.value` property holds the requested data, if the call succeeds.
 
