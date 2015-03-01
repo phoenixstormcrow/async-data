@@ -8,10 +8,10 @@ A web component for async data retrieval.
 ## usage
 
 First, load the polyfill:
-`<script src='src/webcomponents.js`
+`<script src='node_modules/webcomponents.js/webcomponents.js`
 
 Import the element:
-`<link rel="import" href="src/async-data.html">`
+`<link rel="import" href="component/async-data.html">`
 
 Instantiate it:
 `<async-data src='https://someapi.com'></async-data>`

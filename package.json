@@ -3,11 +3,15 @@
   "version": "0.0.2",
   "description": "A web component for async data retrieval.",
   "main": "index.js",
+  "config": {
+    "devport": "1337"
+  },
   "scripts": {
     "test": "tape test/*",
-    "serve": "serve .",
-    "open": "opener http://localhost:3000",
-    "dev": "npm run serve & npm run open"
+    "serve": "serve -p $npm_package_config_devport .",
+    "open": "opener http://localhost:$npm_package_config_devport",
+    "dev": "npm run serve & npm run open",
+    "echo": "echo "
   },
   "repository": {
     "type": "git",

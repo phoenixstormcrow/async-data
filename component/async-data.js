@@ -1,10 +1,13 @@
-<!-- async-data.html -->
-<!-- a web component for async data retrieval -->
-<script>
-(function () {
-
+/* async-data.js */
 var AsyncDataProto = Object.create(HTMLElement.prototype),
     dataEvent = new Event('data', {'bubbles' : true});
+
+function get(url) {
+  var xhr = new XMLHttpRequest();
+
+  xhr.open('GET', url, true);
+
+}
 
 AsyncDataProto.get = function getData() {
   var xhr = new XMLHttpRequest(),
@@ -38,8 +41,16 @@ AsyncDataProto.get = function getData() {
   xhr.send();
 };
 
-AsyncDataProto.attachedCallback = function () {
+AsyncDataProto.createdCallback = function () {
+  console.log('created');
+  this.defer = !!this.getAttribute('defer');
   this.src = this.getAttribute('src');
+};
+
+AsyncDataProto.attachedCallback = function () {
+  console.log('attached');
+  if (this.defer) {
+  }
   if (this.src) {
     this.get();
   }
@@ -53,6 +64,3 @@ AsyncDataProto.attributeChangedCallback = function (attr, oldval, newval) {
 };
 
 var AsyncData = document.registerElement('async-data', { prototype: AsyncDataProto });
-
-})();
-</script>
