@@ -28,4 +28,4 @@ The element's `.value` property holds the requested data, if the call succeeds, 
 
 See [index.html](https://github.com/phoenixstormcrow/async-data/blob/master/index.html) for an example.
 
-**Feedback is welcome.** For instance, is it efficient to pass the retrieved data as the `.detail` property of the data event? Listeners can of course query `event.target.detail` to get the same data. I'm not familiar with the way memory is handled in this case, and so would welcome any input.
+**Feedback is welcome.** For instance, is it efficient to pass the retrieved data as the `.data` property of the data event? This technique was inspired by the way Server-Sent Events work, and I like it. Listeners can of course query `event.target.data` to get the same data. I'm not familiar with the way memory is handled in this case, and so would welcome any input.
