@@ -20,9 +20,9 @@ Data is fetched from the resource indicated by the `src` attribute.
 
 If the element has an `auto` attribute, the request is made as soon as `document.readyState === 'complete'` is `true`, and whenever the `src` attribute is changed. Otherwise, the request can be triggered by calling the element's `.get` method, which takes no arguments.
 
-The element uses the browser-request package to fetch the data. When done, it emits a 'data' event. An 'error' event is emitted if there is an error,
-be it a network error, or a 404. Both events are instances of `CustomEvent`.
-The `.detail` property is set to the value of the data, on success, or the error object, in case of error.
+The element uses the browser-request package to fetch the data. When done, it emits a 'data' event. This is an instance of `MessageEvent`, the `.data` property of which is set to the body of the response.
+
+An 'error' event is emitted if there is an error, be it a network error, or a 404, or something else. This is an instance of `ErrorEvent`, whose `.message` property is set to the value of the `.message` property of the underlying error object, and whose `.error` property is set to that error object itself. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/ErrorEvent), the `.error` property of `ErrorEvent` is **experimental**, but of course none of this is well documented, so if something blows up on you, please file an issue here.
 
 The element's `.value` property holds the requested data, if the call succeeds, and it's `.error` property holds an error object if there was an error making the request.
 

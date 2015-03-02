@@ -15,7 +15,7 @@
     "browser-test": "opener http://localhost:$npm_package_config_devport/test/index.html",
     "watch-test": "watchify test/browser/*.js -o test/test-bundle.js -v -d",
     "echo": "echo ",
-    "build": "browserify lib/index.js -o component/async-data.js && uglify -s component/async-data.js -o component/async-data.min.js",
+    "build": "browserify lib/index.js -o component/async-data.js",
     "watch": "watchify lib/index.js -o component/async-data.js -v -d"
   },
   "repository": {
