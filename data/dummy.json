@@ -1,0 +1,7 @@
+{
+  "foo": "bar",
+  "excelcis": {
+    "a": 5,
+    "b": ["nat", "bre", "cu"]
+  }
+}

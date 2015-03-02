@@ -29,7 +29,7 @@
       <button>Get data</button>
     </form>
 
-    <async-data defer src="https://api.github.com/users/phoenixstormcrow"></async-data>
+    <async-data auto src="https://api.github.com/users/phoenixstormcrow"></async-data>
 
     <h3>Your data:</h3>
     <output id="async-data-output"></output>
@@ -63,13 +63,13 @@
 
         document.addEventListener('data', function (evt) {
           if (evt.target === asyncData) {
-            console.log(evt.target.value);
-            output.textContent = asyncData.value;
+            output.textContent = evt.detail;
           }
-        });
+        }, true);
         document.addEventListener('error', function (evt) {
           if (evt.target === asyncData) {
-            output.textContent = "Oops. Something went wrong."
+            output.textContent = "Oops. Something went wrong.\n" +
+              evt.detail.message;
           }
         });
       };
